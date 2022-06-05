@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="stack flex flex-col justify-start">
+    <component :is="el" class="stack">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -28,11 +28,12 @@ export default defineComponent({
 </script>
 <style scoped lang="postcss">
 .stack {
-    & > * {
+    @apply flex flex-col justify-start;
+    &:deep(> *) {
         @apply mlb-0;
     }
-    & > * + * {
-        margin-block-start: var(--space, 1.5rem);
+    &:deep(> * + *) {
+        margin-block-start: var(--space, theme('spacing.6'));
     }
 }
 </style>
