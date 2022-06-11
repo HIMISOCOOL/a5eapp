@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="sidebar">
+    <component :is="el" class="cluster">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: 'l-sidebar',
+    name: 'l-center',
     props: {
         el: {
             type: String,
@@ -27,11 +27,10 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.sidebar {
+.cluster {
     @apply flex flex-wrap;
-    border-width: var(--border-width, theme('borderWidth.2'));
-    &:deep(*) {
-        color: inherit;
-    }
+    gap: var(--gutter-width, theme('spacing.4'));
+    justify-content: var(--justify, flex-start);
+    align-items: var(--align, flex-start);
 }
 </style>
