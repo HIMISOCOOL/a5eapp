@@ -14,6 +14,14 @@ export default defineComponent({
             type: String,
             default: 'div',
         },
+        left: {
+            type: Boolean,
+            default: true,
+        },
+        right: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props, contexnt) {
         // hooks
@@ -29,9 +37,20 @@ export default defineComponent({
 <style scoped lang="postcss">
 .sidebar {
     @apply flex flex-wrap;
-    border-width: var(--border-width, theme('borderWidth.2'));
-    &:deep(*) {
-        color: inherit;
+    gap: var(--gutter-width, theme('spacing.4'));
+    &.left > :first-child {
+        @apply flex-grow;
+    }
+    &.left > :last-child {
+        @apply basis-0 flex-grow-999;
+        min-inline-size: var(--sidebar-width, theme('spacing.half'));
+    }
+    &.right > :first-child {
+        @apply flex-grow;
+    }
+    &.right > :last-child {
+        @apply basis-0 flex-grow-999;
+        min-inline-size: var(--sidebar-width, theme('spacing.half'));
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="cluster">
+    <component :is="el" class="switcher">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: 'l-center',
+    name: 'l-switcher',
     props: {
         el: {
             type: String,
@@ -27,10 +27,16 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.cluster {
+.switcher {
     @apply flex flex-wrap;
     gap: var(--gutter-width, theme('spacing.4'));
-    justify-content: var(--justify, flex-start);
-    align-items: var(--align, flex-start);
+    & > * {
+        @apply flex-grow;
+        flex-basis: calc((var(--threshold, theme('spacing.96')) - 100%) * 999);
+    }
+    & > :nth-last-child(n + 5),
+    & > :nth-last-child(n + 5) ~ * {
+        @apply basis-full;
+    }
 }
 </style>

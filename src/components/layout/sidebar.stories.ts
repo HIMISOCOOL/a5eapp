@@ -1,41 +1,43 @@
 import type { Story, Args } from '@storybook/vue3';
 import { defineComponent } from 'vue';
-import LStack from './stack.vue';
+import LSidebar from './sidebar.vue';
+import LBox from './box.vue';
 
 export default {
-    title: 'Layout/Stack',
-    component: LStack,
+    title: 'Layout/Sidebar',
+    component: LSidebar,
 } as Args;
 
 const Template: Story = args =>
     defineComponent({
-        components: { 'l-stack': LStack },
+        components: { 'l-sidebar': LSidebar, 'l-box': LBox },
         setup() {
             return {
                 args,
             };
         },
-        template: String.raw`<l-stack v-bind="args">
+        template: String.raw`<l-sidebar v-bind="args" style="--gutter-width: ${
+            args.gutterWidth
+        }; --sidebar-width: ${args.sidebarWidth};">
             <template v-if="${'default' in args}" v-slot>${
             args.default
         }</template>
-        </l-stack>`,
+        </l-sidebar>`,
     });
 
-export const Stack = Template.bind({});
-Stack.args = {
-    default: String.raw`<div>hello world</div>`,
+export const Left = Template.bind({});
+Left.args = {
+    gutterWidth: '1rem',
+    sidebarWidth: '50%',
+    left: true,
+    right: false,
+    default: String.raw`<l-box>Left side</l-box><l-box>hello world</l-box>`,
 };
 
-export const TwoElements = Template.bind({});
-TwoElements.args = {
-    default: String.raw`<div>hello world</div><div>foo bar</div>`,
-};
-
-export const List = Template.bind({});
-List.args = {
-    el: 'ul',
-    default: String.raw`<li>list item 1</li>
-<li>list item 2</li>
-<li>list item 3</li>`,
+export const Right = Template.bind({});
+Right.args = {
+    ...Left.args,
+    right: true,
+    left: false,
+    default: String.raw`<l-box>hello world</l-box><l-box>Right side</l-box>`,
 };
