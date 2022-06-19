@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="center" :class="{ text, intrinsic: children }">
+    <component :is="el" class="center" :class="{ 'include-text': includeText, intrinsic: children }">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -14,13 +14,13 @@ export default defineComponent({
             type: String,
             default: 'div',
         },
-        text: {
+        includeText: {
             type: Boolean,
-            defualt: false,
+            default: false,
         },
         children: {
             type: Boolean,
-            defualt: false,
+            default: false,
         },
     },
     setup(props, contexnt) {
@@ -39,7 +39,7 @@ export default defineComponent({
     @apply box-content mli-auto;
     max-inline-size: var(--max-width, theme('spacing.60ch'));
     gap: var(--gutter-width, 0px);
-    &.text {
+    &.include-text {
         @apply text-center;
     }
     &.intrinsic {

@@ -10,6 +10,9 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'l-stack',
     props: {
+        /**
+         * The type of element to use for the root
+         */
         el: {
             type: String,
             default: 'div',

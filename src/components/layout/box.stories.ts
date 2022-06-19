@@ -26,3 +26,15 @@ export const Box = Template.bind({});
 Box.args = {
     default: String.raw`<div>Hello world</div>`,
 };
+
+export const NoBorder = Template.bind({});
+NoBorder.args = {
+    style: '--border-width: 0px;',
+    default: String.raw`<div>No border on this one</div>`,
+};
+
+export const DarkMode = Template.bind({});
+DarkMode.args = {
+    dark: true,
+    default: String.raw`<div>With border but dark mode</div>`,
+};
