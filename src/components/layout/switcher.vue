@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="switcher">
+    <component :is="el" class="l-switcher">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -27,7 +27,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.switcher {
+.l-switcher {
     @apply flex flex-wrap;
     gap: var(--gutter-width, theme('spacing.4'));
     & > * {

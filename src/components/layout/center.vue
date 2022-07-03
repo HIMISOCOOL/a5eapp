@@ -1,5 +1,9 @@
 <template>
-    <component :is="el" class="center" :class="{ 'include-text': includeText, intrinsic: children }">
+    <component
+        :is="el"
+        class="l-center"
+        :class="{ 'include-text': includeText, intrinsic: children }"
+    >
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -35,7 +39,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.center {
+.l-center {
     @apply box-content mli-auto;
     max-inline-size: var(--max-width, theme('spacing.60ch'));
     gap: var(--gutter-width, 0px);

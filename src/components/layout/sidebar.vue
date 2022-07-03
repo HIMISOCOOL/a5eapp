@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="sidebar">
+    <component :is="el" class="l-sidebar">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -35,7 +35,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.sidebar {
+.l-sidebar {
     @apply flex flex-wrap;
     gap: var(--gutter-width, theme('spacing.4'));
     &.left > :first-child {

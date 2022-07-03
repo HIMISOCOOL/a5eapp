@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="stack">
+    <component :is="el" class="l-stack">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -30,7 +30,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.stack {
+.l-stack {
     @apply flex flex-col justify-start;
     &:deep(> *) {
         @apply mlb-0;

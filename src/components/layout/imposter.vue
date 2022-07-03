@@ -1,5 +1,5 @@
 <template>
-    <div>This is a imposter component</div>
+    <div class="l-imposter">This is a imposter component</div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -20,3 +20,7 @@ export default defineComponent({
     },
 });
 </script>
+<style lang="postcss" scoped>
+.l-imposter {
+}
+</style>

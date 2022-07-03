@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="cluster">
+    <component :is="el" class="l-cluster">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -27,7 +27,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.cluster {
+.l-cluster {
     @apply flex flex-wrap;
     gap: var(--gutter-width, theme('spacing.4'));
     justify-content: var(--justify, flex-start);

@@ -1,5 +1,5 @@
 <template>
-    <component :is="el" class="box" :class="{ dark }">
+    <component :is="el" class="l-box" :class="{ dark }">
         <!-- @slot default slot for children -->
         <slot></slot>
     </component>
@@ -34,7 +34,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-.box {
+.l-box {
     padding: var(--padding, theme('spacing.4'));
     @apply border-solid;
     border-width: var(--border-width, theme('borderWidth.2'));
