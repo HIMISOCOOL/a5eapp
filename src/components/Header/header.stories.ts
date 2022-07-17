@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import Header from './header.vue';
 
 export default {
     title: 'Page/Header',
     component: Header,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

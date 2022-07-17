@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LGrid from './grid.vue';
 
 export default {
     title: 'Layout/Grid',
     component: LGrid,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

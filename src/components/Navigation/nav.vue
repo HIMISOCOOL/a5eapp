@@ -1,18 +1,22 @@
 <template>
-    <span class="c-pill">
-        <!-- @slot default slot -->
+    <l-reel el="nav" class="navigation">
+        <!-- @slot default slot for children -->
         <slot></slot>
-    </span>
+    </l-reel>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import LReel from '../layout/reel.vue';
 
 export default defineComponent({
-    name: 'c-pill',
+    name: 'Navigation',
+    components: {
+        'l-reel': LReel,
+    },
     props: {
         // add props
     },
-    setup(props, context) {
+    setup(props, contexnt) {
         // hooks
         // computed
         // methods
@@ -23,10 +27,8 @@ export default defineComponent({
     },
 });
 </script>
-<style scoped lang="postcss">
-.c-pill {
-    @apply rounded-xl flex flex-row flex-nowrap;
-    padding-block: var(--padding-block, theme('spacing.2'));
-    padding-inline: var(--padding-inline, theme('spacing.4'));
+<style lang="postcss">
+.navigation {
+    --background-color: theme('colors.slate.900');
 }
 </style>

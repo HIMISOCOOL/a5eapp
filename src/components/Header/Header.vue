@@ -1,9 +1,18 @@
 <template>
-    <header class="grid grid-cols-5 gap-5">
+    <header class="grid grid-cols-5 gap-3">
         <l-cluster class="col-span-2">
-            <div class="picture w-full">
-                <img src="" alt="" class="border-2 rounded-full" />
-                <button disabled class="bg-slate-600 rounded-full"></button>
+            <div class="picture w-full relative">
+                <img
+                    src=""
+                    alt=""
+                    class="row-span-4 border-4 border-black rounded-full w-28 h-28"
+                />
+                <button
+                    disabled
+                    class="bg-slate-600 text-white rounded-full absolute bottom-0 right-3 w-9 h-9"
+                >
+                    edit
+                </button>
             </div>
             <l-switcher class="justify-between">
                 <c-input type="text" :value="name" placeholder="Name" />
@@ -59,7 +68,9 @@
                 :key="charClass.name"
                 class="bg-slate-500"
             >
-                {{ charClass.name }} : {{ charClass.level }}
+                <span>{{ charClass.name }}</span>
+                <span>&nbsp;:&nbsp;</span>
+                <span>{{ charClass.level }}</span>
             </c-pill>
         </l-reel>
     </header>
@@ -83,7 +94,14 @@ export default defineComponent({
     },
     setup() {
         const state = reactive({
-            charClasses: [{ name: 'Bard', level: 1 }],
+            charClasses: [
+                { name: 'Bard', level: 1 },
+                { name: 'Bard', level: 1 },
+                { name: 'Bard', level: 1 },
+                { name: 'Bard', level: 1 },
+                { name: 'Bard', level: 1 },
+                { name: 'Bard', level: 1 },
+            ],
             race: '',
             heratige: '',
             culture: '',
@@ -99,3 +117,20 @@ export default defineComponent({
     },
 });
 </script>
+<style lang="postcss">
+header {
+    .c-input {
+        --padding-block: 0px;
+    }
+    .l-cluster {
+        --gutter-width: theme('spacing.3');
+    }
+    .l-reel.l-box {
+        --padding-block: theme('spacing.2');
+        .c-pill {
+            --padding-block: 0px;
+            --padding-inline: theme('spacing.4');
+        }
+    }
+}
+</style>

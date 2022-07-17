@@ -1,4 +1,4 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LCenter from './center.vue';
 import LBox from './box.vue';
@@ -7,7 +7,7 @@ import LStack from './stack.vue';
 export default {
     title: 'Layout/Center',
     component: LCenter,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

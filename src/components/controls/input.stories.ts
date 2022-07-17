@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import CInput from './input.vue';
 
 export default {
     title: 'Controls/Input',
     component: CInput,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

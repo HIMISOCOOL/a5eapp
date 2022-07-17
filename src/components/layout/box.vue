@@ -35,9 +35,11 @@ export default defineComponent({
 </script>
 <style scoped lang="postcss">
 .l-box {
-    padding: var(--padding, theme('spacing.4'));
+    padding-block: var(--padding-block, theme('spacing.4'));
+    padding-inline: var(--padding-inline, theme('spacing.4'));
     @apply border-solid;
     border-width: var(--border-width, theme('borderWidth.2'));
+    border-radius: var(--border-radius, theme('borderRadius.sm'));
     color: var(--text-color, theme('colors.black'));
     background-color: var(--background-color, theme('colors.white'));
     &:deep(*) {

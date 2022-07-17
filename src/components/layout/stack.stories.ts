@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LStack from './stack.vue';
 
 export default {
     title: 'Layout/Stack',
     component: LStack,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

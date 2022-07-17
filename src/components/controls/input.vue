@@ -22,7 +22,8 @@ export default defineComponent({
 </script>
 <style scoped lang="postcss">
 .c-input {
-    @apply border-2 border-solid border-black rounded-sm text-xs plb-2 text-center;
+    @apply border-2 border-solid border-black rounded-sm text-xs text-center;
+    padding-block: var(--padding-block, theme('spacing.2'));
     &[type='number'] {
         appearance: textfield;
         &::-webkit-outer-spin-button,

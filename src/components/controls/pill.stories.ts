@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import CPill from './pill.vue';
 
 export default {
     title: 'Controls/Pill',
     component: CPill,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({

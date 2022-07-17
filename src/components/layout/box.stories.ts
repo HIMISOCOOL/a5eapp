@@ -1,11 +1,11 @@
-import type { Story, Args } from '@storybook/vue3';
+import type { Story, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LBox from './box.vue';
 
 export default {
     title: 'Layout/Box',
     component: LBox,
-} as Args;
+} as Meta;
 
 const Template: Story = args =>
     defineComponent({
