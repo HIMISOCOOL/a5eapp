@@ -2,7 +2,7 @@ import { type Story, type Meta, app } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import { createRouter, createWebHashHistory, RouterView } from 'vue-router';
 import Navigation from './nav.vue';
-import Tab from './Tab.vue';
+import Tab from './tab.vue';
 
 type TabRow = {
     to: string;

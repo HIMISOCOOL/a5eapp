@@ -1,19 +1,35 @@
 <template>
-    <l-box>
-        <output>{{ save }}</output>
-        <l-box>
-            <label>
+    <l-box class="ability-score">
+        <label class="save">
+            <small>Save</small>
+            <l-box el="output" :for="name.toLocaleLowerCase()" class="output">
+                {{ save }}
+            </l-box>
+        </label>
+        <l-box style="--border-width: 0px">
+            <label class="flex flex-col items-center w-full">
                 <input
                     type="text"
                     :value="score"
                     :name="name"
                     :id="name.toLowerCase()"
+                    class="pli-2 text-center"
                 />
-                <span>{{ abbreviation }}</span>
+                <small>{{ abbreviation }}</small>
             </label>
         </l-box>
-        <output>{{ modifier }}</output>
-        <input type="checkbox" :name="proficiencyName" :id="proficiencyId" />
+        <label class="modifier">
+            <small>Mod</small>
+            <l-box el="output" :for="name.toLocaleLowerCase()" class="output">
+                {{ modifier }}
+            </l-box>
+        </label>
+        <input
+            type="checkbox"
+            :name="proficiencyName"
+            :id="proficiencyId"
+            class="absolute -top-2 -right-2"
+        />
     </l-box>
 </template>
 <script lang="ts">
@@ -80,5 +96,29 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="postcss">
-
+.ability-score {
+    @apply border-solid border-black relative;
+    .save,
+    .modifier {
+        @apply flex items-center w-full absolute;
+        & > .output {
+            --background-color: #d9d9d9;
+            --padding-block: 0px;
+            --padding-inline: 1.5rem;
+            @apply flex border-black w-4 justify-center;
+        }
+    }
+    .save {
+        @apply flex-col -top-8 left-0;
+        & > .output {
+            --border-width: 4px;
+        }
+    }
+    .modifier {
+        @apply flex-col-reverse -bottom-8 left-0;
+        & > .output {
+            /* width:  */
+        }
+    }
+}
 </style>
