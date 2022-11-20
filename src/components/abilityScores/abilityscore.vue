@@ -38,7 +38,7 @@ import LBox from '../layout/box.vue';
 import { toModifier } from '../../utils/toModifier';
 
 export default defineComponent({
-    name: 'c-tab',
+    name: 'c-ability-score',
     components: {
         LBox,
     },
@@ -71,7 +71,7 @@ export default defineComponent({
             required: false,
         },
     },
-    setup(props, contexnt) {
+    setup(props, context) {
         // hooks
         const data = reactive({
             proficiencyName: computed(() => `${props.name}Prof`),

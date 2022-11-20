@@ -1,5 +1,3 @@
 <template>
-    <main>
-        Backgrounds View
-    </main>
+    <main>Backgrounds View</main>
 </template>

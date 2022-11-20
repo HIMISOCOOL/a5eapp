@@ -43,7 +43,7 @@ export default defineComponent({
 
         &:focus {
             @apply border-blue-500 outline-0;
-            box-shadow: 0 0 0 0.25rem theme('colors.blue.500')40;
+            box-shadow: 0 0 0 0.25rem theme('colors.blue.500') 40;
         }
 
         &:checked {

@@ -1,5 +1,3 @@
 <template>
-    <main>
-        Spells View
-    </main>
+    <main>Spells View</main>
 </template>

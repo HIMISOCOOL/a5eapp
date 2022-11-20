@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import Header from './components/Header/header.vue';
-import Navigation from './components/Navigation/nav.vue';
-import Tab from './components/Navigation/tab.vue';
+import Header from './components/header/header.vue';
+import Navigation from './components/navigation/nav.vue';
+import Tab from './components/navigation/tab.vue';
 </script>
 
 <template>

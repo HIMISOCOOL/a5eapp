@@ -15,7 +15,7 @@ export default defineComponent({
             default: 'div',
         },
     },
-    setup(props, contexnt) {
+    setup(props, context) {
         // hooks
         // computed
         // methods

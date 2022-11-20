@@ -9,7 +9,7 @@ export default defineComponent({
     props: {
         // add props
     },
-    setup(props, contexnt) {
+    setup(props, context) {
         // hooks
         // computed
         // methods

@@ -23,7 +23,7 @@ export default defineComponent({
             default: false,
         },
     },
-    setup(props, contexnt) {
+    setup(props, context) {
         // hooks
         // computed
         // methods

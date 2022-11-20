@@ -1,5 +1,3 @@
 <template>
-    <main>
-        Notes View
-    </main>
+    <main>Notes View</main>
 </template>
