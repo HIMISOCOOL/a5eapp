@@ -1,3 +1,6 @@
+import { app } from '@storybook/vue3';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import { createPinia } from 'pinia';
 import '../src/assets/index.css';
 
 export const parameters = {
@@ -9,3 +12,10 @@ export const parameters = {
         },
     },
 };
+
+app.use(createPinia());
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes: [],
+});
+app.use(router);

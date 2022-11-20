@@ -1,3 +1,6 @@
+/**
+ * @type {import("@storybook/builder-vite").StorybookViteConfig}
+ */
 module.exports = {
     stories: [
         '../src/**/*.stories.mdx',
@@ -15,4 +18,13 @@ module.exports = {
     features: {
         storyStoreV7: true,
     },
+    async viteFinal(config, options) {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@': '../src',
+        };
+
+        return config;
+    },
 };
+

@@ -24,7 +24,7 @@
                 />
                 <c-input
                     type="number"
-                    :value="exp"
+                    :value="experience"
                     placeholder="EXP"
                     class="w-2/5"
                 />
@@ -33,32 +33,33 @@
         <l-cluster class="col-span-3">
             <c-input
                 type="text"
-                :value="race"
-                placeholder="Race"
-                class="w-full"
-            />
-            <c-input
-                type="text"
-                :value="heratige"
+                :value="heratige.name"
                 placeholder="Heratige"
                 class="w-full"
             />
             <c-input
                 type="text"
-                :value="culture"
+                :value="culture.name"
                 placeholder="Culture"
                 class="w-full"
             />
             <c-input
                 type="text"
-                :value="background"
+                :value="background.name"
                 placeholder="Background"
                 class="w-full"
             />
             <c-input
+                readonly
                 type="text"
-                :value="destiny"
+                :value="destiny.name"
                 placeholder="Destiny"
+                class="w-full"
+            />
+            <c-input
+                type="text"
+                :value="motivation"
+                placeholder="Motivation"
                 class="w-full"
             />
         </l-cluster>
@@ -76,12 +77,13 @@
     </header>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import LCluster from '../layout/cluster.vue';
 import LSwitcher from '../layout/switcher.vue';
 import LReel from '../layout/reel.vue';
 import CInput from '../controls/input.vue';
 import CPill from '../controls/pill.vue';
+import { useCharacterStore } from '@/stores/character';
 
 export default defineComponent({
     name: 'c-header',
@@ -93,26 +95,10 @@ export default defineComponent({
         'c-pill': CPill,
     },
     setup() {
-        const state = reactive({
-            charClasses: [
-                { name: 'Bard', level: 1 },
-                { name: 'Bard', level: 1 },
-                { name: 'Bard', level: 1 },
-                { name: 'Bard', level: 1 },
-                { name: 'Bard', level: 1 },
-                { name: 'Bard', level: 1 },
-            ],
-            race: '',
-            heratige: '',
-            culture: '',
-            background: '',
-            destiny: '',
-            name: '',
-            level: 1,
-            exp: 0,
-        });
+        const { character } = useCharacterStore();
+
         return {
-            ...toRefs(state),
+            ...toRefs(character),
         };
     },
 });
