@@ -1,5 +1,3 @@
 <template>
-    <main>
-        Features View
-    </main>
+    <main>Features View</main>
 </template>

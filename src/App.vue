@@ -1,37 +1,19 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld.vue';
-import Header from './components/Header/Header.vue';
+import { RouterView } from 'vue-router';
+import Header from './components/header/header.vue';
+import Navigation from './components/navigation/nav.vue';
+import Tab from './components/navigation/tab.vue';
 </script>
 
 <template>
     <Header />
-    <!-- <header>
-        <img
-            alt="Vue logo"
-            class="logo"
-            src="@/assets/logo.svg"
-            width="125"
-            height="125"
-        />
-
-        <div class="wrapper">
-            <HelloWorld msg="You did it!" />
-
-            <nav>
-                <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/about">About</RouterLink>
-            </nav>
-        </div>
-    </header> -->
-    <nav>
-        <RouterLink to="/character">Character</RouterLink>
-        <RouterLink to="/backgrounds">Backgrounds</RouterLink>
-        <RouterLink to="/features">Features</RouterLink>
-        <RouterLink to="/inventory">Inventory</RouterLink>
-        <RouterLink to="/notes">Notes</RouterLink>
-        <RouterLink to="/spells">Spells</RouterLink>
-    </nav>
+    <Navigation>
+        <Tab to="/character">Character</Tab>
+        <Tab to="/backgrounds">Backgrounds</Tab>
+        <Tab to="/features">Features</Tab>
+        <Tab to="/inventory">Inventory</Tab>
+        <Tab to="/notes">Notes</Tab>
+    </Navigation>
 
     <RouterView />
 </template>
@@ -47,7 +29,7 @@ import Header from './components/Header/Header.vue';
     font-weight: normal;
 }
 
-a,
+/* a,
 .green {
     text-decoration: none;
     color: hsla(160, 100%, 37%, 1);
@@ -99,5 +81,5 @@ nav a:first-of-type {
         padding: 1rem 0;
         margin-top: 1rem;
     }
-}
+} */
 </style>

@@ -1,5 +1,3 @@
 <template>
-    <main>
-        Inventory View
-    </main>
+    <main>Inventory View</main>
 </template>

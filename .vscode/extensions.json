@@ -1,3 +1,17 @@
 {
-  "recommendations": ["johnsoncodehk.volar", "johnsoncodehk.vscode-typescript-vue-plugin"]
+    "recommendations": [
+        "vue.volar",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "csstools.postcss",
+        "christian-kohler.path-intellisense",
+        "heybourn.headwind",
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
+        "mikestead.dotenv",
+        "naumovs.color-highlight",
+        "aaron-bond.better-comments",
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag"
+    ]
 }
