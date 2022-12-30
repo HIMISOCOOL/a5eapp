@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 import AbilityScore from './abilityscore.vue';
 
 export default {
-    title: 'Controls/Ability Score',
+    title: 'Page/Character/Ability Score',
     component: AbilityScore,
 } as Meta;
 

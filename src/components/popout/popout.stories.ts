@@ -5,7 +5,7 @@ import CPopout from './popout.vue';
 import { Origin } from './utils';
 
 export default {
-    title: 'Popout',
+    title: 'Controls/Popout',
     component: CPopout,
     argTypes: {
         origin: {
@@ -17,6 +17,10 @@ export default {
                 [`bottomRight = ${Origin.bottomRight}`]: Origin.bottomRight,
             },
         },
+    },
+    args: {
+        x: 10,
+        y: 10,
     },
 } as Meta;
 

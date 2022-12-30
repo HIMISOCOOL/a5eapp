@@ -1,9 +1,13 @@
 <template>
     <l-box class="popout" :class="originClasses">
-        <l-box>
-            <slot name="controls"></slot>
-        </l-box>
-        <slot> popout content </slot>
+        <l-stack>
+            <l-cluster class="controls">
+                <!-- @slot controls slot -->
+                <slot name="controls"></slot>
+            </l-cluster>
+            <!-- @slot default slot for popout content -->
+            <slot> popout content </slot>
+        </l-stack>
     </l-box>
 </template>
 <script lang="ts">
@@ -15,27 +19,46 @@ import {
     type PropType,
 } from 'vue';
 import LBox from '../layout/box.vue';
+import LStack from '../layout/stack.vue';
+import LCluster from '../layout/cluster.vue';
 import { Origin } from './utils';
 
+/**
+ * A popout control
+ */
 export default defineComponent({
     name: 'c-popout',
     components: {
         LBox,
+        LStack,
+        LCluster,
     },
     props: {
+        /**
+         * The x position offset relative to the origin
+         */
         x: {
             type: Number,
             required: true,
         },
+        /**
+         * The y position offset relative to the origin
+         */
         y: {
             type: Number,
             required: true,
         },
+        /**
+         * space around the element
+         */
         space: {
             type: String,
             required: false,
             default: '1em',
         },
+        /**
+         * Which corner of the parent element to popout from
+         */
         origin: {
             type: Number as PropType<Origin>,
             required: false,
@@ -69,6 +92,10 @@ export default defineComponent({
 .popout {
     margin: v-bind(space);
     position: fixed;
+    .controls {
+        --justify: flex-end;
+        @apply -mbs-2.5 pbe-2.5;
+    }
     &.top-left {
         top: v-bind(yPos);
         left: v-bind(xPos);
