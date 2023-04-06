@@ -1,13 +1,13 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LBox from './box.vue';
 
 export default {
     title: 'Layout/Box',
     component: LBox,
-} as Meta;
+} as Meta<typeof LBox>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-box': LBox },
         setup() {
@@ -22,19 +22,28 @@ const Template: Story = args =>
         </l-box>`,
     });
 
-export const Box = Template.bind({});
-Box.args = {
-    default: String.raw`<div>Hello world</div>`,
+export const Box = {
+    render: Template,
+
+    args: {
+        default: String.raw`<div>Hello world</div>`,
+    },
 };
 
-export const NoBorder = Template.bind({});
-NoBorder.args = {
-    style: '--border-width: 0px;',
-    default: String.raw`<div>No border on this one</div>`,
+export const NoBorder = {
+    render: Template,
+
+    args: {
+        style: '--border-width: 0px;',
+        default: String.raw`<div>No border on this one</div>`,
+    },
 };
 
-export const DarkMode = Template.bind({});
-DarkMode.args = {
-    dark: true,
-    default: String.raw`<div>With border but dark mode</div>`,
+export const DarkMode = {
+    render: Template,
+
+    args: {
+        dark: true,
+        default: String.raw`<div>With border but dark mode</div>`,
+    },
 };

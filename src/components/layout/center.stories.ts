@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LCenter from './center.vue';
 import LBox from './box.vue';
@@ -7,9 +7,9 @@ import LStack from './stack.vue';
 export default {
     title: 'Layout/Center',
     component: LCenter,
-} as Meta;
+} as Meta<typeof LCenter>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-center': LCenter, 'l-box': LBox, 'l-stack': LStack },
         setup() {
@@ -26,27 +26,36 @@ const Template: Story = args =>
         </l-center>`,
     });
 
-export const Center = Template.bind({});
-Center.args = {
-    default: String.raw`<div>Hello world</div>`,
-    maxWidth: '',
-    gutterWidth: '',
+export const Center = {
+    render: Template,
+
+    args: {
+        default: String.raw`<div>Hello world</div>`,
+        maxWidth: '',
+        gutterWidth: '',
+    },
 };
 
-export const WithText = Template.bind({});
-WithText.args = {
-    ...Center.args,
-    default: String.raw`<div>Hello world foo bar bin baz</div>`,
-    text: true,
+export const WithText = {
+    render: Template,
+
+    args: {
+        ...Center.args,
+        default: String.raw`<div>Hello world foo bar bin baz</div>`,
+        text: true,
+    },
 };
 
-export const CenterChildren = Template.bind({});
-CenterChildren.args = {
-    ...Center.args,
-    default: String.raw`<l-stack el="ul">
-    <l-box el="li">Hello World</l-box>
-    <l-box el="li">Foo</l-box>
-    <l-box el="li">Bar</l-box>
-    <l-box el="li">Baz</l-box>
-</l-stack>`,
+export const CenterChildren = {
+    render: Template,
+
+    args: {
+        ...Center.args,
+        default: String.raw`<l-stack el="ul">
+        <l-box el="li">Hello World</l-box>
+        <l-box el="li">Foo</l-box>
+        <l-box el="li">Bar</l-box>
+        <l-box el="li">Baz</l-box>
+    </l-stack>`,
+    },
 };

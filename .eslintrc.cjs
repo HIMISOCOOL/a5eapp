@@ -11,6 +11,7 @@ module.exports = {
         'eslint:recommended',
         '@vue/eslint-config-typescript/recommended',
         '@vue/eslint-config-prettier',
+        'plugin:storybook/recommended',
     ],
     env: {
         'vue/setup-compiler-macros': true,
@@ -25,9 +26,9 @@ module.exports = {
                 node: true,
             },
         },
-        {
-            files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}'],
-            extends: ['plugin:cypress/recommended'],
-        },
+        // {
+        //     files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}'],
+        //     extends: ['plugin:cypress/recommended'],
+        // },
     ],
 };

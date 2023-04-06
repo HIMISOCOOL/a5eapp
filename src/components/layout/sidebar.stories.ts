@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LSidebar from './sidebar.vue';
 import LBox from './box.vue';
@@ -6,9 +6,9 @@ import LBox from './box.vue';
 export default {
     title: 'Layout/Sidebar',
     component: LSidebar,
-} as Meta;
+} as Meta<typeof LSidebar>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-sidebar': LSidebar, 'l-box': LBox },
         setup() {
@@ -25,19 +25,25 @@ const Template: Story = args =>
         </l-sidebar>`,
     });
 
-export const Left = Template.bind({});
-Left.args = {
-    gutterWidth: '1rem',
-    sidebarWidth: '50%',
-    left: true,
-    right: false,
-    default: String.raw`<l-box>Left side</l-box><l-box>hello world</l-box>`,
+export const Left = {
+    render: Template,
+
+    args: {
+        gutterWidth: '1rem',
+        sidebarWidth: '50%',
+        left: true,
+        right: false,
+        default: String.raw`<l-box>Left side</l-box><l-box>hello world</l-box>`,
+    },
 };
 
-export const Right = Template.bind({});
-Right.args = {
-    ...Left.args,
-    right: true,
-    left: false,
-    default: String.raw`<l-box>hello world</l-box><l-box>Right side</l-box>`,
+export const Right = {
+    render: Template,
+
+    args: {
+        ...Left.args,
+        right: true,
+        left: false,
+        default: String.raw`<l-box>hello world</l-box><l-box>Right side</l-box>`,
+    },
 };

@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import { RouterView, useRouter } from 'vue-router';
 import Navigation from './nav.vue';
@@ -19,9 +19,9 @@ export default {
     title: 'Page/Navigation',
     component: Navigation,
     subcomponents: { Tab },
-} as Meta;
+} as Meta<typeof Navigation>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: {
             'c-navigation': Navigation,
@@ -50,13 +50,16 @@ const Template: Story = args =>
         <RouterView></RouterView>`,
     });
 
-export const _Navigation = Template.bind({});
-_Navigation.args = {
-    tabs: [
-        { to: '/character', text: 'Character' },
-        { to: '/backgrounds', text: 'Backgrounds' },
-        { to: '/features', text: 'Features' },
-        { to: '/inventory', text: 'Inventory' },
-        { to: '/notes', text: 'Notes' },
-    ] as TabRow[],
+export const _Navigation = {
+    render: Template,
+
+    args: {
+        tabs: [
+            { to: '/character', text: 'Character' },
+            { to: '/backgrounds', text: 'Backgrounds' },
+            { to: '/features', text: 'Features' },
+            { to: '/inventory', text: 'Inventory' },
+            { to: '/notes', text: 'Notes' },
+        ] as TabRow[],
+    },
 };

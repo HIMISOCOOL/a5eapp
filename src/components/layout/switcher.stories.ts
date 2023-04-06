@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LSwitcher from './switcher.vue';
 import LBox from './box.vue';
@@ -6,9 +6,9 @@ import LBox from './box.vue';
 export default {
     title: 'Layout/Switcher',
     component: LSwitcher,
-} as Meta;
+} as Meta<typeof LSwitcher>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-switcher': LSwitcher, 'l-box': LBox },
         setup() {
@@ -25,16 +25,19 @@ const Template: Story = args =>
         </l-switcher>`,
     });
 
-export const Switcher = Template.bind({});
-Switcher.args = {
-    gutterWidth: '1rem',
-    threshold: '24rem',
-    default: String.raw`<l-box>Hello World</l-box>
-    <l-box>Hello World Hello World Hello World Hello World Hello World Hello World</l-box>
-    <l-box>Hello World</l-box>
-    <l-box>Hello World</l-box>
-    <l-box>Hello World</l-box>
-    <l-box>Hello World</l-box>
-    <l-box>Hello World</l-box>
-    <l-box>Hello World</l-box>`,
+export const Switcher = {
+    render: Template,
+
+    args: {
+        gutterWidth: '1rem',
+        threshold: '24rem',
+        default: String.raw`<l-box>Hello World</l-box>
+        <l-box>Hello World Hello World Hello World Hello World Hello World Hello World</l-box>
+        <l-box>Hello World</l-box>
+        <l-box>Hello World</l-box>
+        <l-box>Hello World</l-box>
+        <l-box>Hello World</l-box>
+        <l-box>Hello World</l-box>
+        <l-box>Hello World</l-box>`,
+    },
 };

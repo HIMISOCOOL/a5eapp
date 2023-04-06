@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { actions } from '@storybook/addon-actions';
 import { defineComponent, reactive, toRefs } from 'vue';
 import CPopout from './popout.vue';
@@ -22,11 +22,11 @@ export default {
         x: 10,
         y: 10,
     },
-} as Meta;
+} as Meta<typeof Popout>;
 
 const logEvents = actions({ openPopout: 'opened', closePopout: 'closed' });
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: {
             'c-popout': CPopout,
@@ -63,4 +63,6 @@ const Template: Story = args =>
         </div>`,
     });
 
-export const Popout = Template.bind({});
+export const Popout = {
+    render: Template,
+};

@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LCluster from './cluster.vue';
 import LBox from './box.vue';
@@ -25,9 +25,9 @@ export default {
             options: alignOptions,
         },
     },
-} as Meta;
+} as Meta<typeof LCluster>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-cluster': LCluster, 'l-box': LBox },
         setup() {
@@ -44,15 +44,21 @@ const Template: Story = args =>
         </l-cluster>`,
     });
 
-export const Cluster = Template.bind({});
-Cluster.args = {
-    default: String.raw`<l-box>Hello world</l-box><l-box>Hello world</l-box><l-box>Hello world</l-box>`,
-    justify: justifyOptions[0],
-    align: alignOptions[0],
+export const Cluster = {
+    render: Template,
+
+    args: {
+        default: String.raw`<l-box>Hello world</l-box><l-box>Hello world</l-box><l-box>Hello world</l-box>`,
+        justify: justifyOptions[0],
+        align: alignOptions[0],
+    },
 };
 
-export const JustifyEnd = Template.bind({});
-JustifyEnd.args = {
-    ...Cluster.args,
-    justify: justifyOptions[1],
+export const JustifyEnd = {
+    render: Template,
+
+    args: {
+        ...Cluster.args,
+        justify: justifyOptions[1],
+    },
 };

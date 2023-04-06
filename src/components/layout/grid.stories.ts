@@ -1,13 +1,13 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LGrid from './grid.vue';
 
 export default {
     title: 'Layout/Grid',
     component: LGrid,
-} as Meta;
+} as Meta<typeof LGrid>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-grid': LGrid },
         setup() {
@@ -24,15 +24,18 @@ const Template: Story = args =>
         </l-grid>`,
     });
 
-export const Grid = Template.bind({});
-Grid.args = {
-    gutterWidth: '1rem',
-    minWidth: '250px',
-    default: String.raw`<div>hello world</div>
-    <div>hello world</div>
-    <div>hello world</div>
-    <div>hello world</div>
-    <div>hello world</div>
-    <div>hello world</div>
-    <div>hello world</div>`,
+export const Grid = {
+    render: Template,
+
+    args: {
+        gutterWidth: '1rem',
+        minWidth: '250px',
+        default: String.raw`<div>hello world</div>
+        <div>hello world</div>
+        <div>hello world</div>
+        <div>hello world</div>
+        <div>hello world</div>
+        <div>hello world</div>
+        <div>hello world</div>`,
+    },
 };

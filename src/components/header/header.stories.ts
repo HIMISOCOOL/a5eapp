@@ -1,13 +1,15 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import Header from './header.vue';
 
-export default {
+const meta: Meta<typeof Header> = {
     title: 'Page/Header',
     component: Header,
-} as Meta;
+};
 
-const Template: Story = args =>
+export default meta;
+
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'c-header': Header },
         setup() {
@@ -19,7 +21,10 @@ const Template: Story = args =>
         </c-header>`,
     });
 
-export const _Header = Template.bind({});
-_Header.args = {
-    // default: String.raw`<div>Hello world</div>`,
+export const _Header = {
+    render: Template,
+
+    args: {
+        // default: String.raw`<div>Hello world</div>`,
+    },
 };

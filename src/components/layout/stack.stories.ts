@@ -1,13 +1,13 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import LStack from './stack.vue';
 
 export default {
     title: 'Layout/Stack',
     component: LStack,
-} as Meta;
+} as Meta<typeof LStack>;
 
-const Template: Story = args =>
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'l-stack': LStack },
         setup() {
@@ -22,20 +22,29 @@ const Template: Story = args =>
         </l-stack>`,
     });
 
-export const Stack = Template.bind({});
-Stack.args = {
-    default: String.raw`<div>hello world</div>`,
+export const Stack = {
+    render: Template,
+
+    args: {
+        default: String.raw`<div>hello world</div>`,
+    },
 };
 
-export const TwoElements = Template.bind({});
-TwoElements.args = {
-    default: String.raw`<div>hello world</div><div>foo bar</div>`,
+export const TwoElements = {
+    render: Template,
+
+    args: {
+        default: String.raw`<div>hello world</div><div>foo bar</div>`,
+    },
 };
 
-export const List = Template.bind({});
-List.args = {
-    el: 'ul',
-    default: String.raw`<li>list item 1</li>
-<li>list item 2</li>
-<li>list item 3</li>`,
+export const List = {
+    render: Template,
+
+    args: {
+        el: 'ul',
+        default: String.raw`<li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>`,
+    },
 };

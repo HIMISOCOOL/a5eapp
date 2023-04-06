@@ -1,13 +1,15 @@
-import type { Story, Meta } from '@storybook/vue3';
+import type { StoryFn, Meta } from '@storybook/vue3';
 import { defineComponent } from 'vue';
 import CPill from './pill.vue';
 
-export default {
+const meta: Meta<typeof CPill> = {
     title: 'Controls/Pill',
     component: CPill,
-} as Meta;
+};
 
-const Template: Story = args =>
+export default meta;
+
+const Template: StoryFn = args =>
     defineComponent({
         components: { 'c-pill': CPill },
         setup() {
@@ -22,8 +24,11 @@ const Template: Story = args =>
         </c-pill>`,
     });
 
-export const Pill = Template.bind({});
-Pill.args = {
-    class: 'bg-red-400 text-white',
-    default: 'Hello World',
+export const Pill = {
+    render: Template,
+
+    args: {
+        class: 'bg-red-400 text-white',
+        default: 'Hello World',
+    },
 };

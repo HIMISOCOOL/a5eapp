@@ -1,19 +1,16 @@
 /**
- * @type {import("@storybook/builder-vite").StorybookViteConfig}
+ * @type {import("@storybook/vue3-vite").StorybookConfig}
  */
-module.exports = {
-    stories: [
-        '../src/**/*.stories.mdx',
-        '../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+const config = {
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
     ],
-    framework: '@storybook/vue3',
-    core: {
-        builder: '@storybook/builder-vite',
+    framework: {
+        name: '@storybook/vue3-vite',
+        options: {},
     },
     features: {
         storyStoreV7: true,
@@ -23,8 +20,10 @@ module.exports = {
             ...config.resolve.alias,
             '@': '../src',
         };
-
         return config;
     },
+    docs: {
+        autodocs: true,
+    },
 };
-
+export default config;
