@@ -6,14 +6,13 @@
                 {{ save }}
             </l-box>
         </label>
-        <l-box style="--border-width: 0px">
-            <label class="flex flex-col items-center w-full">
+        <l-box class="value">
+            <label>
                 <input
                     type="text"
                     :value="score"
                     :name="name"
                     :id="name.toLowerCase()"
-                    class="pli-2 text-center"
                 />
                 <small>{{ abbreviation }}</small>
             </label>
@@ -28,7 +27,7 @@
             type="checkbox"
             :name="proficiencyName"
             :id="proficiencyId"
-            class="absolute -top-2 -right-2"
+            class="proficient"
         />
     </l-box>
 </template>
@@ -108,6 +107,15 @@ export default defineComponent({
             @apply flex border-black w-4 justify-center;
         }
     }
+    .value {
+        --border-width: 0px;
+        & > label {
+            @apply flex flex-col items-center w-full;
+            & > input {
+                @apply pli-2 text-center;
+            }
+        }
+    }
     .save {
         @apply flex-col -top-8 left-0;
         & > .output {
@@ -119,6 +127,9 @@ export default defineComponent({
         & > .output {
             /* width:  */
         }
+    }
+    .proficient {
+        @apply absolute -top-2 -right-2;
     }
 }
 </style>

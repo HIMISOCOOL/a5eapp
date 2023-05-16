@@ -11,7 +11,7 @@ import LReel from '../layout/reel.vue';
 export default defineComponent({
     name: 'Navigation',
     components: {
-        'l-reel': LReel,
+        LReel,
     },
     // props: {
     //     // add props

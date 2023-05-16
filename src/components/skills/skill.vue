@@ -17,7 +17,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import LCluster from '@/components/layout/cluster.vue';
 import CInput from '@/components/controls/input.vue';
 
 /**
@@ -26,7 +25,6 @@ import CInput from '@/components/controls/input.vue';
 export default defineComponent({
     name: 'Passive',
     components: {
-        LCluster,
         CInput,
     },
     props: {

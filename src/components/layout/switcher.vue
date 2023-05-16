@@ -7,9 +7,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+/**
+ * This element _Switches_ between taking up space and collapsing into a list
+ */
 export default defineComponent({
     name: 'l-switcher',
     props: {
+        /**
+         * The type of element to use for the root
+         */
         el: {
             type: String,
             default: 'div',

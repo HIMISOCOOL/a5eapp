@@ -1,7 +1,9 @@
 <template>
-    <l-cluster el="output" class="passive">
-        <label>Passive {{ name }}</label>
-        <span :title="valueLabel">{{ value }}</span>
+    <l-cluster el="label" class="passive">
+        <span>Passive {{ name }}</span>
+        <output :name="name.toLowerCase()">
+            <strong :title="valueLabel">{{ value }}</strong>
+        </output>
     </l-cluster>
 </template>
 <script lang="ts">
@@ -14,6 +16,7 @@ import {
 } from 'vue';
 import LCluster from '@/components/layout/cluster.vue';
 import { toModifier } from '@/utils';
+import type { AbilityScore } from '@/models/abilityScore.factory';
 
 /**
  * A passive skill
@@ -35,7 +38,7 @@ export default defineComponent({
          * Which ability score is associated with this passive
          */
         abilityScore: {
-            type: Object,
+            type: Object as PropType<AbilityScore>,
             required: true,
         },
         /**
@@ -75,10 +78,10 @@ export default defineComponent({
 <style scoped lang="postcss">
 .passive {
     --justify: between;
-    > label {
+    > span {
         @apply font-light text-xs;
     }
-    > span {
+    > output > strong {
         @apply font-semibold text-base;
     }
 }
