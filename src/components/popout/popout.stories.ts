@@ -2,6 +2,8 @@ import type { StoryFn, Meta } from '@storybook/vue3';
 import { actions } from '@storybook/addon-actions';
 import { defineComponent, reactive, toRefs } from 'vue';
 import CPopout from './popout.vue';
+import CButton from '../controls/button.vue';
+import CrossLargeIcon from '../icons/CrossLarge.vue';
 import { Origin } from './utils';
 
 export default {
@@ -30,6 +32,8 @@ const Template: StoryFn = args =>
     defineComponent({
         components: {
             'c-popout': CPopout,
+            'c-button': CButton,
+            'cross-large-icon': CrossLargeIcon,
         },
         setup() {
             const data = reactive({
@@ -52,10 +56,10 @@ const Template: StoryFn = args =>
         },
         template: String.raw`
         <div class="relative">
-            <button @click="openPopout">open Popout</button>
+            <c-button @click="openPopout">Open Popout</c-button>
             <c-popout v-bind="args" v-show="showPopout">
                 <template #controls>
-                    <button @click="closePopout">X</button>
+                    <button @click="closePopout"><cross-large-icon class="w-4 h-4" /></button>
                 </template>
                 This is some popout content
                 <p>assdasdfasddfasdasd</p>

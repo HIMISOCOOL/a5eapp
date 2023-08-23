@@ -5,7 +5,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: 'l-switch',
+    name: 'c-switch',
     props: {
         // add props
     },
